@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <style type="text/css">
+
+        .center
+        {
+            text-align: center
+        }
+        h1
+        {
+            margin-top:-8px;
+            margin-bottom:000px;
+            margin-right:-15px;
+            margin-left:-6px;
+            background-image: url("/site_media/header_3.png");
+            font-family:"Times New Roman", Times, serif;
+            color: white;
+        }
+
+    </style>
+    <title>engrade-login</title>
+
+
+</head>
+<body>
+<h1 ><span style="margin-left:160px"><b><font size="10" face="Times">Engrade</font></b></span>
+    <span style="margin-left:740px"><font size="4" face="Times">sign up</font></span>
+    <a href="http://127.0.0.1:8000/login" style="text-decoration:none;"><span style="margin-left:20px"><font size="4" face="Times" color="white">login</font></span></a>
+
+    <hr WIDTH="1050">
+    <br/><br/>
+
+    <form action="." method='post'>{% csrf_token %}
+        <span style="margin-left:540px " style="margin-top: -4px"><font size="3" face="Times" color="black">Engrade login </font></span><br/>
+
+            <span style="margin-left:540px" style="margin-top: 5px " ><font size="3" face="Times" color="black">Username: </font></span>
+            <span style="margin-left:20px" style="margin-top: 5px " ><input type="text" name="username" size="22" maxlength="128" value="{{ name }}" id="username"></span><br/>
+            <span style="margin-left:540px " ><font size="3" face="Times" color="black">Password : </font></span>
+            <span style="margin-left:20px" style="margin-top: 5px " ><input type="password" name="password"size="22" maxlength="128" value="{{ password }}" id="password"></span><br/>
+
+            <span style="margin-left:640px" style="margin-top: 5px " ><input type="submit" value="login" ></span>
+        {% if form.errors %}
+            <p class="error"><span style="margin-left:540px" style="margin-top: 0px " ><font size="2" face="Times" color="red">Sorry, that's not a valid username or password</font></span></p>
+        {% endif %}
+    </form>
+    <br/><br/><br/><br/><br/>
+</h1>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<form action="." method="post">
+    Question<br/>
+    <textarea rows="4" cols="100" name="new_question">{{new_ques}}</textarea><br/>
+
+    <input type="text" name="new_ans1" value="{{new_ans1}}">
+    {% if correct == "A" %}
+        <input type="radio" name="new_correct_ans" value="A" checked=""><br/>
+    {% else %}
+        <input type="radio" name="new_correct_ans" value="A"><br/>
+    {% endif %}
+
+    <input type="text" name="new_ans2" value="{{new_ans2}}">
+    {% if correct == "B" %}
+        <input type="radio" name="new_correct_ans" value="B" checked=""><br/>
+    {% else %}
+        <input type="radio" name="new_correct_ans" value="B"><br/>
+    {% endif %}
+
+    <input type="text" name="new_ans3" value="{{new_ans3}}">
+    {% if correct == "C" %}
+        <input type="radio" name="new_correct_ans" value="C" checked=""><br/>
+    {% else %}
+        <input type="radio" name="new_correct_ans" value="C"><br/>
+    {% endif %}
+
+    <input type="text" name="new_ans4" value="{{new_ans4}}">
+    {% if correct == "D" %}
+        <input type="radio" name="new_correct_ans" value="D" checked=""><br/>
+    {% else %}
+        <input type="radio" name="new_correct_ans" value="D"><br/>
+    {% endif %}
+
+    <input type="submit" value="Save" name="edit">
+
+</form>
+
+</body>
+</html>

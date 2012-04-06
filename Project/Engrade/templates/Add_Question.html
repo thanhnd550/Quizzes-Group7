@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<form action="." method="post">
+    {% if created %}
+        Question<br/>
+        <textarea rows="4" cols="100" name="question">{{ques}}</textarea><br/>
+
+        A:
+        <input type="text" name="ans1" value="{{ans1}}" size="100">
+        <input type="radio" name="correct_ans" value="A"><br/>
+        B:
+        <input type="text" name="ans2" value="{{ans2}}" size="100">
+        <input type="radio" name="correct_ans" value="B"><br/>
+        C:
+        <input type="text" name="ans3" value="{{ans3}}" size="100">
+        <input type="radio" name="correct_ans" value="C"><br/>
+        D:
+        <input type="text" name="ans4" value="{{ans4}}" size="100">
+        <input type="radio" name="correct_ans" value="D"><br/>
+
+        <input type="submit" value="Add">
+    {% else %}
+        <input type="submit" name="create" value="Add new Question"><br/>
+        {% for question in list %}
+            {{ question.ques }}
+            <a href="/Delete_Question/{{ question.id }}">delete</a>
+            <a href="/Edit_Question/{{ question.id }}">Edit</a>
+            <br/>
+            ------------------------------------------------<br/>
+            {% if question.correct_ans == "A" %}
+                <input type="radio" checked="">{{ question.ans1 }}<br/>
+            {% else %}
+                <input type="radio">{{ question.ans1 }}<br/>
+            {% endif %}
+
+            {% if question.correct_ans == "B" %}
+                <input type="radio" checked="">{{ question.ans2 }}<br/>
+            {% else %}
+                <input type="radio">{{ question.ans2 }}<br/>
+            {% endif %}
+
+            {% if question.correct_ans == "C" %}
+                <input type="radio" checked="">{{ question.ans3 }}<br/>
+            {% else %}
+                <input type="radio">{{ question.ans3 }}<br/>
+            {% endif %}
+
+            {% if question.correct_ans == "D" %}
+                <input type="radio" checked="">{{ question.ans4 }}<hr/>
+            {% else %}
+                <input type="radio">{{ question.ans4 }}<hr/>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</form>
+</body>
+</html>

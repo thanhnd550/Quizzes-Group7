@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HomePage</title>
+    <link rel="icon" href="/site_media/apple-touch-icon.png" type="images">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/site_media/mycss/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/site_media/mycss/layout.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/site_media/mycss/style.css" type="text/css" media="all">
+    <script type="text/javascript" src="/site_media/js/jquery-1.5.2.js" ></script>
+    <script type="text/javascript" src="/site_media/js/cufon-yui.js"></script>
+    <script type="text/javascript" src="/site_media/js/cufon-replace.js"></script>
+    <script type="text/javascript" src="/site_media/js/Molengo_400.font.js"></script>
+    <script type="text/javascript" src="/site_media/js/Expletus_Sans_400.font.js"></script>
+    <!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<style type="text/css">
+	.bg, .box2 {behavior:url(js/PIE.htc)}
+</style>
+<![endif]-->
+    <!--[if lt IE 7]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode">
+		<img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
+	</div>
+<![endif]-->
+    <script type="text/javascript">
+        function showtime(){
+            if (!document.all && !document.getElementById)
+                return;
+            thelement=document.getElementById? document.getElementById("tick2"): document.all.tick2;
+            var Digital=new Date();
+            var hours=Digital.getHours();
+            var minutes=Digital.getMinutes();
+            var seconds=Digital.getSeconds();
+            var dn="PM";
+            if (hours<12)
+                dn="AM";
+            if (hours>12)
+                hours=hours-12;
+            if (hours==0)
+                hours=12;
+            if (minutes<=9)
+                minutes="0"+minutes;
+            if (seconds<=9)
+                seconds="0"+seconds;
+            var ctime=hours+":"+minutes+":"+seconds+" "+dn;
+            thelement.innerHTML="<b style='font-size:15;color:white;'>"+ctime+"</b>";
+            setTimeout("showtime()",1000);
+        }
+        window.onload=showtime;
+    </script>
+    <script type="text/javascript">
+        function groupMember(){
+            alert("GROUP 7\n\nNguyễn Đại Thành\nĐặng Trần Thái\nĐỗ Xuân Quyết\nTrịnh Đình Thanh\nNguyễn Khánh Thiện\nNguyễn Đức Mạnh")
+        }
+    </script>
+    <style type="text/css">
+        .hidden{
+            visibility: hidden;
+        }
+        .introduce{
+            background: blue;
+            font-size: 14;
+            color: white;
+        }
+    </style>
+</head>
+
+<body id="page5">
+<div class="body1">
+    <div class="main">
+        <!-- header -->
+        <header>
+            <div class="wrapper">
+                <nav>
+                    <ul id="menu">
+                        <li><a href="/Create_Class/">Teachers</a></li>
+                        <li><a href="/ListOfClass/">Student</a></li>
+                        <li><a href="/register/">Register</a></li>
+                        <li class="end"><a href="/logout/">Logout</a></li>
+                    </ul>
+                </nav>
+                <ul id="icons">
+                    <span id="tick2"></span>
+                </ul>
+            </div>
+            <div class="wrapper">
+                <h1><img src="/site_media/logo.png"></h1>
+            </div>
+            <div id="slogan">
+                We Will Open The World<span>of knowledge for you!</span>
+            </div>
+
+        </header>
+        <!-- / header -->
+    </div>
+</div>
+<div class="body2">
+    <div class="main">
+        <!-- content -->
+        <section id="content">
+            <div class="box1">
+                <div class="wrapper">
+                    <article class="col1">
+                        <div class="pad_left1">
+                            <h2 class="pad_bot1"></h2>
+                        </div>
+                        <img src="/site_media/images1/page1_img1.jpg" >
+                        <img src="/site_media/images1/page1_img2.jpg" >
+                        <img src="/site_media/images1/page3_img1.jpg" >
+                        <img src="/site_media/images1/page3_img2.jpg" >
+                        <img src="/site_media/images1/page5_img1.jpg" >
+                        <img src="/site_media/images1/page1_img3.jpg" >
+                        <img src="/site_media/images1/page3_img3.jpg" >
+                    </article>
+                    <article class="col2 pad_left2">
+                        <div class="pad_left1">
+                            <h2>Introduce</h2>
+                        </div>
+                        <div class="introduce">
+                            <br/>
+                            <span style="margin-left: 10px;"></span>This is our firt web app
+                            using Django plattform! :D<br/>
+                            <br/>
+                        </div>
+                        <center><img src="/site_media/homepage.gif" height="60px"><br/></center>
+                        <a href="javascript:groupMember()" class="button"><span><span>Group Member</span></span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- content -->
+        <!-- footer -->
+        <footer>
+            <div class="wrapper">
+                <div class="pad1">
+                    <div class="pad_left1">
+                        <div class="wrapper">
+                            <article class="col_1">
+                                <h3>Address:</h3>
+                                <p class="col_address"><strong>Country:<br>
+                                    City:<br>
+                                    Address:<br>
+                                    Email:</strong></p>
+                                <p>Viet Nam<br>
+                                    Ha Noi<br>
+                                    144 Xuan Thuy<br>
+                                    <a href="mailto:">abc@vnu.edu.vn</a></p>
+                            </article>
+
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- / footer -->
+    </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="text/javascript">
+        var classlist=[];
+        {% for clas in list %}
+            classlist.push('{{ clas.name }}');
+        {% endfor %}
+        function show(){
+                 var i=0;
+                while(i<classlist.length){
+                    document.writeln(classlist[i]+"/");
+
+                        i++;
+
+
+                }
+        }
+    </script>
+
+</head>
+<body>
+
+<input type="submit" name="next" value="next" onclick="show()">
+
+
+</body>
+</html>

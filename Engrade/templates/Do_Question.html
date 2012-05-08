@@ -1,0 +1,46 @@
+{% extends "base_func.html" %}
+{% block title %} Do questions {% endblock %}
+{% block block_content %}
+<form action="." method="post">
+<ol>
+{% for ques in list %}
+    <li>
+    <div style="background: yellow">{{ ques.ques }}</div>
+    <br/>
+    <input type="radio" name="{{ ques.ques }}" value="A">{{ ques.ans1 }}<br/>
+    <input type="radio" name="{{ ques.ques }}" value="B">{{ ques.ans2 }}<br/>
+    <input type="radio" name="{{ ques.ques }}" value="C">{{ ques.ans3 }}<br/>
+    <input type="radio" name="{{ ques.ques }}" value="D">{{ ques.ans4 }}<br/>
+
+    <b>{{ ques.check_do }}</b>
+    {% if ques.check_do == "true"%}
+        your answer is: {{ ques.your_answer }}
+        <img src="/site_media/icon-very-good.gif" alt="" height="40px" width="40px">
+    {% endif %}
+    {% if ques.check_do == "false" %}
+        your answer is: {{ ques.your_answer }}
+        <img src="/site_media/36_1_48.gif" alt="" height="34px" width="34px"><br/>
+        <font color="red">Correct answer: {{ ques.correct_ans }}</font>
+    {% endif %}
+    <hr/>
+    </li>
+
+{% endfor %}
+</ol>
+    <input type="submit" name="submit" value="submit" class="btn pull-right"><br/>
+
+    {% if submitted %}
+        RESULT<br/>
+        {% if not list_correct %}
+            <b>Correct answer:</b> 0/{{ total }}<br/>
+        {% else %}
+        <b>Correct answer:</b> {{ mark }}/{{ total }}<br/>
+        {% endif %}
+
+        <b>You get mark:</b>
+        {{ mark }}<br/>
+
+    {% endif %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base_func.html" %}
+{% block top_menu %} {% endblock %}
+{% block block_content %}
+<div class="container">
+    <form action="." method="post">
+        <input type="text" placeholder="Enter class code of {{ class_name }}" name="access" value="{{ access }}">
+        <input type="submit"  value="Go" class="btn-success">
+    </form>
+    {% if ok == 'wrong' %}
+        the access code is wrong you should contact your teacher to get access code
+    {% endif %}
+    <hr/>
+    Here are another classes<br/>
+    {% for class in list %}
+        {% if class.name != class_name %}<li>{{ class.name }}</li>{% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

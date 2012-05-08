@@ -1,0 +1,95 @@
+{% extends "base_func.html" %}
+{% block title %}Add Question{% endblock %}
+{% block extend_head %}
+    <script type="text/javascript">
+        function delete_confirm(id ){
+            var query=confirm("Do you want to delete this Question")
+            if(query==true){
+                window.location="/Delete_Question/"+id
+            }
+        }
+
+    </script>
+{% endblock %}
+{% block top_menu %}
+    <ul class="nav pull-right">
+        Welcome {{ user.username }}, <a href="/logout/">logout</a>
+    </ul>
+{% endblock %}
+{% block block_content %}
+    <form action="." method="post">
+        <div>
+            {% if created %}
+                <div>
+                    <br/>Question<br/>
+                    <textarea  class="input-xxlarge" rows="4" name="question">{{ques}}</textarea><br/>
+
+                    A:
+                    <input type="text" name="ans1" value="{{ans1}}" size="60" class="input">
+                    <input type="radio" name="correct_ans" value="A"><br/>
+                    B:
+                    <input type="text" name="ans2" value="{{ans2}}" size="60" class="input">
+                    <input type="radio" name="correct_ans" value="B"><br/>
+                    C:
+                    <input type="text" name="ans3" value="{{ans3}}" size="60" class="input">
+                    <input type="radio" name="correct_ans" value="C"><br/>
+                    D:
+                    <input type="text" name="ans4" value="{{ans4}}" size="60" class="input">
+                    <input type="radio" name="correct_ans" value="D"><br/>
+
+                </div>
+                <input type="submit" value="Add" class="btn">
+                <a href="/Add_Question/{{ number }}" class="btn">Cancel</a>
+                </div>
+            {% else %}
+                <input type="submit" name="create"  value="Creat New Question" class="btn"><br>
+                <h2>{{ mytitle }}</h2> </br>
+                <div>
+                    <ol start="1">
+                        {% for question in list %}
+                            <li>
+                                <b>{{ question.ques }}</b>
+                            </li>
+                                <div class="btn-group pull-right">
+                                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-cog"></i> Option
+                                        <span class="caret"></span>
+                                    </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="option" onclick="delete_confirm( {{ question.id }} )"><label><i class="icon-trash"></i> Delete</label></a></li>
+                                    <li><a class="option" href="/Edit_Question/{{ question.id }}"><i class="icon-edit"></i> Edit</a></li>
+                                </ul>
+                                </div>
+                                <br/>
+                                {% if question.correct_ans == "A" %}
+                                    <font style="color: red">A. {{ question.ans1 }}</font><br/>
+                                {% else %}
+                                    A. {{ question.ans1 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "B" %}
+                                    <font style="color: red">B. {{ question.ans2 }}</font><br/>
+                                {% else %}
+                                    B. {{ question.ans2 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "C" %}
+                                    <font style="color: red">C. {{ question.ans3 }}</font><br/>
+                                {% else %}
+                                    C. {{ question.ans3 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "D" %}
+                                    <font style="color: red">D. {{ question.ans4 }}</font><br/>
+                                {% else %}
+                                   D. {{ question.ans4 }}<br/>
+                                {% endif %}
+
+                                <br/><br/><hr/>
+
+                        {% endfor %}
+                    </ol>
+                </div>
+            {% endif %}
+    </form>
+{% endblock %}

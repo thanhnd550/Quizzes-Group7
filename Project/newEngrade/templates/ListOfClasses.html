@@ -1,9 +1,0 @@
-{% extends "base_func.html"%}
-{% block title %} List of Classes {% endblock %}
-{% block top_menu %} {% endblock %}
-{% block block_content %}
-    <h1>Choose one class:</h1>
-    {% for class in list %}
-        <a href="/go_to_class/{{ class.id }}"><li><h3>{{ class.name }}</h3></li></a>
-    {% endfor %}
-{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block title %} Register {% endblock %}
+{% block top_menu %}
+    <ul class="nav pull-right">
+        <li><a href="/login/">Login</a></li>
+    </ul>
+{% endblock %}
+{% block block_content %}
+    <form method="post" action="." class="register" align="center"> {% csrf_token %}
+        <br/>
+        <b class="table"><h1>Creat new account</h1></b>
+        <table class="table" align="center">
+            {{ form.as_table }}
+        </table>
+        <br/>
+        <input class="btn" type="submit" value="submit" size="40"/>
+        <input class="btn" type="reset" value="Cancel" size="40" /><br/><br/>
+    </form>
+
+{% endblock %}
+

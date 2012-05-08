@@ -1,0 +1,15 @@
+{% extends "base_func.html" %}
+{% block title %} Assign to classes {% endblock %}
+{% block block_content %}
+<form action="." method="post">
+
+    {% for class in list %}
+    {% if class in assigned %}
+        <div class="icon-ok"></div>{{class.name }}<br/>
+    {% else %}
+        <input type="checkbox" name="class" value="{{ class.id }}">{{ class.name }}<br/>
+    {% endif %}
+    {% endfor %}
+    <input class="btn" type="submit" name="submit" value="Assign">
+</form>
+{% endblock %}

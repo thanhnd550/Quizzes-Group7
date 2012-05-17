@@ -1,32 +1,34 @@
 # Create your views here.
+from django.contrib.auth import login
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from Account.models import RegistrationForm
 from django.contrib.auth.models import  User
 from django.core.urlresolvers import reverse
-def login(request):
+
+def mylogin(request):
     username=request.POST.get('username')
     password = request.POST.get('password')
-    remember=request.POST.get('remember me')
-
-    user=auth.authenticate(name=username,password=password)
-    if user is not None and  user.is_active:
-        login(request,user)
-        return HttpResponseRedirect('/Create_Class/')
+    if username and password:
+        state=""
+        user=auth.authenticate(username=username,password=password)
+        if user is not None and  user.is_active:
+            login(request,user)
+            return HttpResponseRedirect('/Create_Class/')
+        else:
+            state="Sorry, that's not a valid username or password"
+            return render_to_response('registration/login.html',{'state':state})
     else:
-        return HttpResponseRedirect(reverse("Account.views.Home_page"))
-
+        return render_to_response('registration/login.html')
 def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect(reverse("Engrade.Account.views.Home_page"))
+    return HttpResponseRedirect("/")
 
 
-def main_page(request):
-    if request.user.is_authenticated() and request.user.is_active:
-        return render_to_response('Main-page.html',{'user': request.user, })
-    else:
-        return HttpResponseRedirect('login')
+def About(request):
+    return render_to_response("About.html")
+
 
 
 def Home_page(request):

@@ -14,16 +14,18 @@
 {% endblock %}
 
 {% block block_content %}
+<div class="well">
 <form action="." method="post" class="center">
 
 
-    <font face="arial" color="white" >Quiz Title:</font>
+    <font face="arial">Quiz Title:</font>
     <span style="margin-left: 60px">
         <input type="text" name="newTitle" value="{{ newTitle }}" size="40"><hr/>
     </span>
-    <font face="arial" color="white" >Time Limit</font>
+    <font face="arial">Time Limit</font>
     <span style="margin-left: 60px">
         <select name="TimeLimit">
+            <option value="0">None</option>
             <option value="20">20 minutes</option>
             <option value="30">30 minutes</option>
             <option value="40">40 minutes</option>
@@ -37,4 +39,5 @@
         <a href="/Create_Quizzes/" class="btn">Cancel</a>
 
 </form>
+</div>
 {% endblock %}

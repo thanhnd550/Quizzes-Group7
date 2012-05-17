@@ -18,32 +18,63 @@
 {% endblock %}
 {% block block_content %}
     <form action="." method="post">
-        <div>
-            {% if created %}
-                <div>
-                    <br/>Question<br/>
-                    <textarea  class="input-xxlarge" rows="4" name="question">{{ques}}</textarea><br/>
+  
+        <div id="createQuestionModal" class="modal fade hide" style="display: none;" >
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal"> X </a>
+                <h2>
+                    Create new question
+                </h2>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>Question</td>
+                        <td><textarea  class="input-xxlarge" rows="4" name="question">{{ques}}</textarea></td>
+                    </tr>
 
-                    A:
-                    <input type="text" name="ans1" value="{{ans1}}" size="60" class="input">
-                    <input type="radio" name="correct_ans" value="A"><br/>
-                    B:
-                    <input type="text" name="ans2" value="{{ans2}}" size="60" class="input">
-                    <input type="radio" name="correct_ans" value="B"><br/>
-                    C:
-                    <input type="text" name="ans3" value="{{ans3}}" size="60" class="input">
-                    <input type="radio" name="correct_ans" value="C"><br/>
-                    D:
-                    <input type="text" name="ans4" value="{{ans4}}" size="60" class="input">
-                    <input type="radio" name="correct_ans" value="D"><br/>
+                    <tr>
+                        <td>A:</td>
+                        <td>
+                            <input type="text" name="ans1" value="{{ans1}}"  class="input-xxlarge">
+                            <input type="radio" name="correct_ans" value="A"><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B:</td>
+                        <td>
+                            <input type="text" name="ans2" value="{{ans2}}"  class="input-xxlarge">
+                            <input type="radio" name="correct_ans" value="B"><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C:</td>
+                        <td>
+                            <input type="text" name="ans3" value="{{ans3}}"  class="input-xxlarge">
+                            <input type="radio" name="correct_ans" value="C"><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>D:</td>
+                        <td>
+                            <input type="text" name="ans4" value="{{ans4}}"  class="input-xxlarge">
+                            <input type="radio" name="correct_ans" value="D"><br/>
+                        </td>
+                    </tr>
+                </table>
 
-                </div>
-                <input type="submit" value="Add" class="btn">
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Add" class="btn"/>
+                <input type="reset" value="Reset" class="btn">
                 <a href="/Add_Question/{{ number }}" class="btn">Cancel</a>
-                </div>
-            {% else %}
-                <input type="submit" name="create"  value="Creat New Question" class="btn"><br>
+            </div>
+        </div>
+        <a href="#createQuestionModal" data-toggle="modal" class="btn btn-primary btn-large">Create new question </a> <br>
                 <h2>{{ mytitle }}</h2> </br>
+                {% if not list %}
+                    <b style="color: red;">No Question.Let 's add new question</b>
+                {% else %}
                 <div>
                     <ol start="1">
                         {% for question in list %}
@@ -90,6 +121,7 @@
                         {% endfor %}
                     </ol>
                 </div>
-            {% endif %}
+                {% endif %}
+
     </form>
 {% endblock %}

@@ -6,16 +6,23 @@
     </ul>
 {% endblock %}
 {% block block_content %}
-    <form method="post" action="." class="register" align="center"> {% csrf_token %}
-        <br/>
-        <b class="table"><h1>Creat new account</h1></b>
-        <table class="table" align="center">
-            {{ form.as_table }}
-        </table>
-        <br/>
-        <input class="btn" type="submit" value="submit" size="40"/>
-        <input class="btn" type="reset" value="Cancel" size="40" /><br/><br/>
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="span3"> <br/> </div>
+            <div class="span6">
+                <form method="post" action="." class="register form-actions" align="center"> {% csrf_token %}
+                    <br/>
+                    <b class="table"><h1>Creat new account</h1></b>
+                    <table class="controls table" align="center">
+                        {{ form.as_table }}
+                    </table>
+                    <br/>
+                    <input class="btn" type="submit" value="Submit" size="40"/>
+                    <input class="btn" type="reset" value="Reset" size="40" /><br/><br/>
+                </form>
+            </div>
+            <div class="span3"> <br/> </div>
+        </div>
+    </div>
 
 {% endblock %}
-

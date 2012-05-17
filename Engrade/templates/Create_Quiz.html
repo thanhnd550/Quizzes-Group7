@@ -18,35 +18,153 @@
     </ul>
 {% endblock %}
 {% block block_content %}
-    <form action="." method="post" class="center">
-        {% if create %}
-            <div class="CreateQuiz">
-                <b><span style="margin-top: 20px"><font size="5">Create New Quiz</font></span></b><br/><br/>
-                <font face="arial" >Quiz Title:</font>
-        <span style="margin-left: 60px">
-            <input type="text" name="title" value="{{ title }}" size="40"><br/>
-            <span style="margin-left: 135px"><font size="1">the name of your quiz : information technology</font></span>
-        </span>
-                <hr/>
+    <div class="well">
+    <form action="." method="post" class="">
 
-                Time limit:
-        <span style="margin-left: 60px"><select name="TimeLimit">
-            <option value="20">20 minutes</option>
-            <option value="30">30 minutes</option>
-            <option value="40">40 minutes</option>
-            <option value="60">60 minutes</option>
-            <option value="120">120 minutes</option>
-            <option value="150">150 minutes</option>
-            <option value="180">180 minutes</option>
-        </select></span><hr/>
+            <div id="createQuizModal" class="modal fade hide" style="display: none;" >
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal"> X </a>
+                    <h2>
+                        Create new quiz
+                    </h2>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <td>Quiz Title:</td>
+                            <td><input type="text" name="title" value="{{ title }}" size="40"><br/></td>
+                        </tr>
 
-                <input type="submit" value="CREATE" class="btn">
-                <a href="/Create_Quizzes/" class="btn">CANCEL</a>
+                        <tr>
+                            <td>Time limit:</td>
+                            <td><select name="TimeLimit">
+                                <option value="0">None</option>
+                                <option value="20">20 minutes</option>
+                                <option value="30">30 minutes</option>
+                                <option value="40">40 minutes</option>
+                                <option value="60">60 minutes</option>
+                                <option value="120">120 minutes</option>
+                                <option value="150">150 minutes</option>
+                                <option value="180">180 minutes</option>
+                            </select></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="CREATE" class="btn">
+                    <a href="/Create_Quizzes/" class="btn">CANCEL</a>
+                </div>
             </div>
 
-        {% else %}
-            <input type="submit" name="create"  value="CREATE NEW QUIZ" class="btn"><br/><hr/>
+            <a href="#createQuizModal" data-toggle="modal" class="btn btn-primary btn-large">Create new quiz</a><br/><hr/>
+            {% if not new_list and not list %}
+                <b style="color: red;">No Quiz. Let's create new quiz</b>
+            {% endif %}
+            {% for q in new_list%}
+
+                <div id ="myNewListModal{{ q.id }}" class="modal fade hide" style="display: none;" >
+
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal"> X </a>
+                        <h2>
+                            {{ q.title }}
+                        </h2>
+                    </div>
+
+                    <div class="modal-body well">
+                        {% for question in new_list_ques %}
+                            {% if question.number == q.id%}
+                                <li>
+                                    <h4>{{ question.ques }}</h4>
+                                </li>
+                                {% if question.correct_ans == "A" %}
+                                    <font style="color: red">A. {{ question.ans1 }}</font><br/>
+                                {% else %}
+                                    A. {{ question.ans1 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "B" %}
+                                    <font style="color: red">B. {{ question.ans2 }}</font><br/>
+                                {% else %}
+                                    B. {{ question.ans2 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "C" %}
+                                    <font style="color: red">C. {{ question.ans3 }}</font><br/>
+                                {% else %}
+                                    C. {{ question.ans3 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "D" %}
+                                    <font style="color: red">D. {{ question.ans4 }}</font><br/>
+                                {% else %}
+                                    D. {{ question.ans4 }}<br/>
+                                {% endif %}
+
+                                <br/><hr/>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" class="btn" data-dismiss="modal">Close</a>
+
+                    </div>
+                </div>
+                <a href="#myNewListModal{{ q.id }}" data-toggle="modal"> <img src="/site_media/address_book.png" width="20" height="20"> {{ q.title }}</a>
+                <hr/>
+            {% endfor %}
+            <!------------------------------------------------------->
             {% for e in list %}
+
+                <div id ="myNewListModal{{ e.id }}" class="modal fade hide" style="display: none;" >
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal"> X </a>
+                        <h2>
+                            {{ e.title }}
+                        </h2>
+                    </div>
+                    <div class="modal-body well">
+
+                        {% for question in list_ques %}
+                            {% if question.number == e.id%}
+                                <li>
+                                    <h4>{{ question.ques }}</h4>
+                                </li>
+                                {% if question.correct_ans == "A" %}
+                                    <font style="color: red">A. {{ question.ans1 }}</font><br/>
+                                {% else %}
+                                    A. {{ question.ans1 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "B" %}
+                                    <font style="color: red">B. {{ question.ans2 }}</font><br/>
+                                {% else %}
+                                    B. {{ question.ans2 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "C" %}
+                                    <font style="color: red">C. {{ question.ans3 }}</font><br/>
+                                {% else %}
+                                    C. {{ question.ans3 }}<br/>
+                                {% endif %}
+
+                                {% if question.correct_ans == "D" %}
+                                    <font style="color: red">D. {{ question.ans4 }}</font><br/>
+                                {% else %}
+                                    D. {{ question.ans4 }}<br/>
+                                {% endif %}
+
+                                <br/><hr/>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" class="btn" data-dismiss="modal">Close</a>
+
+                    </div>
+                </div>
+
                 <a href="/Add_Question/{{ e.id }}" class="Quiz_title"><img src="/site_media/address_book.png" width="20" height="20">  {{ e.title }}</a><br/>
                 </br>
                 <div class="btn-group pull-right">
@@ -57,15 +175,18 @@
                     <ul class="dropdown-menu">
                         <li><a class="option" onclick="delete_confirm( {{ e.id }} )"><i class="icon-trash"></i> Delete</a></li>
                         <li><a href="/Edit_Quiz/{{ e.id }}"><i class="icon-edit"></i> Edit</a></li>
-                        <li><a href="/Assign_To/{{ e.id }}"><i class="icon-arrow-right"></i> Assign</a></li>
+                        <a href="#myNewListModal{{ e.id }}" data-toggle="modal"><i class="icon-picture"></i> Views</a></li>
+                        <li><a href="/Assign_To/{{ e.id }}"><i class="icon-arrow-right"></i> Assign To Class</a></li>
+                        <li><a href="/Add_User/{{ e.id }}"><i class="icon-plus"></i> Add_User</a></li>
                      </ul>
 
                 </div>
                 <b>Time update: </b>{{ e.update_time }}<br/>
                 <b>Time limit: </b>{{ e.Time_limit }} minutes<br/>
 
-<hr/>
-{% endfor %}
-{% endif %}
-</form>
+                <hr/>
+            {% endfor %}
+
+    </form>
+    </div>
 {% endblock %}

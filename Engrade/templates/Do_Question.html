@@ -1,24 +1,28 @@
 {% extends "base_func.html" %}
 {% block title %} Do questions {% endblock %}
 {% block block_content %}
+<div class="well">
 <form action="." method="post">
 <ol>
+{% if not list %}
+    <b style="color: red;">There aren't any questions</b>
+{% endif %}
 {% for ques in list %}
     <li>
-    <div style="background: yellow">{{ ques.ques }}</div>
+    <div style=""><h4>{{ ques.ques }}</h4></div>
     <br/>
     <input type="radio" name="{{ ques.ques }}" value="A">{{ ques.ans1 }}<br/>
     <input type="radio" name="{{ ques.ques }}" value="B">{{ ques.ans2 }}<br/>
     <input type="radio" name="{{ ques.ques }}" value="C">{{ ques.ans3 }}<br/>
     <input type="radio" name="{{ ques.ques }}" value="D">{{ ques.ans4 }}<br/>
 
-    <b>{{ ques.check_do }}</b>
+    <b style="color: red;">{{ ques.check_do }}</b>
     {% if ques.check_do == "true"%}
-        your answer is: {{ ques.your_answer }}
+        <font color="blue">your answer is: {{ ques.your_answer }}</font>
         <img src="/site_media/icon-very-good.gif" alt="" height="40px" width="40px">
     {% endif %}
     {% if ques.check_do == "false" %}
-        your answer is: {{ ques.your_answer }}
+        <font color="blue">your answer is: {{ ques.your_answer }}</font>
         <img src="/site_media/36_1_48.gif" alt="" height="34px" width="34px"><br/>
         <font color="red">Correct answer: {{ ques.correct_ans }}</font>
     {% endif %}
@@ -27,20 +31,20 @@
 
 {% endfor %}
 </ol>
-    <input type="submit" name="submit" value="submit" class="btn pull-right"><br/>
+    <input type="submit" name="submit" value="Submit" class="btn pull-right"><br/>
 
     {% if submitted %}
-        RESULT<br/>
+        <b style="color: blue;">RESULT</b><br/>
         {% if not list_correct %}
-            <b>Correct answer:</b> 0/{{ total }}<br/>
+            <b style="color: blue;">Correct answer:</b> <font color="red">0/{{ total }}</font><br/>
         {% else %}
-        <b>Correct answer:</b> {{ mark }}/{{ total }}<br/>
+        <b style="color: blue;">Correct answer:</b> <font color="red">{{ mark }}/{{ total }}</font><br/>
         {% endif %}
 
-        <b>You get mark:</b>
-        {{ mark }}<br/>
+        <b style="color: blue;">You get mark:</b>
+        <font color="red">{{ mark }}</font><br/>
 
     {% endif %}
 </form>
-
+</div>
 {% endblock %}

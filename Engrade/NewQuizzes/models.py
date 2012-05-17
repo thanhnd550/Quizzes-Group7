@@ -9,6 +9,10 @@ class Title(models.Model):
     user_quiz=models.CharField(max_length=40)
     def __str__(self):
         return self.id
+class OtherUser(models.Model):
+    extra_user=models.CharField(max_length=40)
+    number=models.IntegerField()
+    change=models.BooleanField()
 
 class Question(models.Model):
     title=models.CharField(max_length=30)

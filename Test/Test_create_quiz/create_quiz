@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://quizzes-group-7.herokuapp.com/Create_Quizzes/" />
+<title>create_quiz</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">create_quiz</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Create_Quizzes/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 01</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 02</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 03</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=TimeLimit</td>
+	<td>label=20 minutes</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 04</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=TimeLimit</td>
+	<td>label=30 minutes</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 05</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=TimeLimit</td>
+	<td>label=60 minutes</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 06</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 07</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 08</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 09</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=TimeLimit</td>
+	<td>label=150 minutes</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new quiz</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>Quiz 10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=TimeLimit</td>
+	<td>label=60 minutes</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

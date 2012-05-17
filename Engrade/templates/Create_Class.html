@@ -20,42 +20,72 @@
 {% block block_content %}
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span10">
+            <div class="span12">
+                <a href="/Create_Quizzes/"><button class="btn btn-primary btn-large"><i class="icon-plus-sign"></i> Creat quiz</button></a>
+                <hr/>
+                <div class="well">
                 <h2>Create Classes</h2>
-                <form method="POST" action="." align="center">
-                    Class:<br/>
-                    <input type="text" size="50" name="name" value="{{ name }}" class="input"><br/>
-                    Code Access:<br/>
-                    <input type="text" size="50" name="number" value="{{ number }}" class="input"><br/><br/>
+                <form method="POST" action="." class="form-horizontal">
+                    <table class="table" align="center">
+                        <tr>
+                            <td>Class:</td>
+                            <td><input type="text" name="name" value="{{ name }}" class="input"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Code Access:</td>
+                            <td><input type="text" size="50" name="number" value="{{ number }}" class="input"><br/>
+                                <div style="color: red;">{{ state }}</div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Permission</td>
+                            <td>
+                                <select name="choice">
+                                    <option value="0">Private</option>
+                                    <option value="1">Public</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                     <button type="submit" class="btn"><i class="icon-plus"></i> Create</button>
-                    <button type="reset" class="btn">Reset</button><br/>
-
-
-                    Your Classes:<br/>
-
-                    {% for class in list %}
-                        <a href="/go_to_class/{{ class.id }}" style="color: blue;">{{ class.name }}</a> access code:{{ class.access_number }}
-                            <div class="btn-group pull-right">
-                                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-cog"></i> Option
-                                    <span class="caret"></span>
-                                </a>
-                            <ul class="dropdown-menu">
-                            <a onclick="delete_confirm({{ class.id }})"> <i class="icon-trash"></i>Delete</a>
-                            </ul>
-                            </div>
-                    <hr/>
-                    {% endfor %}
+                    <a href="/Create_Class/" class="btn">Reset</a>
 
 
                 </form>
+                    <h3>Your Classes:</h3><br/>
+                    <form action="." method="POST">
+                        <input type="submit" name="show" class="btn" value="show access code">
+                        <input type="submit" name="hide" class="btn" value="hide access code">
+                    </form>
+                    {% if not list %}
+                        <b style="color: red;">You don't have any class.Let's create your classes</b>
+                    {% endif %}
+
+                    {% for class in list %}
+                        <a href="/go_to_class/{{ class.id }}" style="color: blue;"><i class="icon-book"></i> {{ class.name }}</a> <br/>
+                        {% if show %}
+                            <i class="icon-barcode"></i>Access code:{{ class.access_number }}
+                        {% endif %}
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-cog"></i> Option
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <a onclick="delete_confirm({{ class.id }})"> <i class="icon-trash"></i> Delete</a>
+                            </ul>
+                        </div>
+                        <hr/>
+                    {% endfor %}
+                </div>
             </div>
             <div class="span2" align="center">
-                <a href="/Create_Quizzes/"><button class="btn btn-danger"><i class="icon-plus-sign"></i> Creat quiz</button></a>
+
             </div>
         </div>
+        <a href="/ListOfClass/" class="btn">All Classes</a>
     </div>
-
-
 
 {% endblock %}

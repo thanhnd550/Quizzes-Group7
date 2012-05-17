@@ -1,0 +1,40 @@
+{% extends "base_func.html" %}
+{% block title %} Show Question {% endblock %}
+{% block top_menu %}
+    <ul class="nav pull-right">
+        Welcome {{ user.username }}, <a href="/logout/">logout</a>
+    </ul>
+{% endblock %}
+{% block block_content %}
+<h1>{{ title }}</h1></br>
+{% for question in list%}
+    <li>
+        <b>{{ question.ques }}</b>
+    </li>
+    {% if question.correct_ans == "A" %}
+        <font style="color: red">A. {{ question.ans1 }}</font><br/>
+    {% else %}
+        A. {{ question.ans1 }}<br/>
+    {% endif %}
+
+    {% if question.correct_ans == "B" %}
+        <font style="color: red">B. {{ question.ans2 }}</font><br/>
+    {% else %}
+        B. {{ question.ans2 }}<br/>
+    {% endif %}
+
+    {% if question.correct_ans == "C" %}
+        <font style="color: red">C. {{ question.ans3 }}</font><br/>
+    {% else %}
+        C. {{ question.ans3 }}<br/>
+    {% endif %}
+
+    {% if question.correct_ans == "D" %}
+        <font style="color: red">D. {{ question.ans4 }}</font><br/>
+    {% else %}
+        D. {{ question.ans4 }}<br/>
+    {% endif %}
+
+    <br/><hr/>
+{% endfor %}
+{% endblock %}

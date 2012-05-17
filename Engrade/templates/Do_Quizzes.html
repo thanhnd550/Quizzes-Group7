@@ -1,8 +1,19 @@
 {% extends "base_func.html" %}
 {% block title %} Do Quizzes {% endblock %}
+{% block top_menu%}
+    <ul class="nav pull-right">
+        Welcome {{ user.username }}, <a href="/logout/">logout</a>
+    </ul>
+{% endblock %}
 {% block block_content %}
+{% if list %}
 {% for quiz in list %}
-    <li><a href="/Do_Question/{{ quiz.id }}">{{ quiz.title }}</a></li>
+    <div class="well">
+    <a href="/Do_Question/{{ quiz.id }}/{{ class }}"><h4> <i class="icon-tags"> </i> {{ quiz.title }}</h4></a><hr/>
+    </div>
 {% endfor %}
+{% else %}
+    <b style="color: red;">No quiz was assigned to this class</b>
+{% endif %}
 {% endblock %}
 

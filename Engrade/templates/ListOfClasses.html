@@ -1,9 +1,70 @@
 {% extends "base_func.html"%}
 {% block title %} List of Classes {% endblock %}
-{% block top_menu %} {% endblock %}
+{% block top_menu%}
+    <ul class="nav pull-right">
+        <b>Welcome {{ user.username }}, <a href="/logout/">logout</a></b>
+    </ul>
+{% endblock %}
 {% block block_content %}
-    <h1>Choose one class:</h1>
+    <div class="well">
+    <h1>
+        Choose one class:
+        <form action="." method="POST">
+            <input type="text" name="search" class="input-xlarge" placeholder="Enter the name of class or own class">
+            <input type="submit" class="btn-success" name="submit" value="Search">
+        </form>
+    </h1>
+    {% if not list %}
+        <b style="color: red;">No class here</b>
+    {% endif %}
+    {% if list1 %}
+        {% for cl in list1 %}
+            <a href="/go_to_class/{{ cl.id }}"><h3><i class="icon-book"></i> {{ cl.name }}</h3></a><i class="icon-user"> </i> {{ cl.teacher }}<br/>
+            <i class="icon-envelope"> </i> {{ cl.teacher_email }}
+            <a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/?tab%3Dwm&scc=1&ltmpl=default&ltmplcache=2">contact</a><br/>
+            {% if user.username == cl.teacher %}
+                <b style="color: blue;">Your Class</b><br/>
+            {% else %}
+
+                {% if cl.permission %}
+                    <b style="color: blue;">public</b><br/>
+                {% else %}
+                    {% if cl in new_list1 %}
+                        <b style="color: blue;"><i class="icon-plus-sign"></i> allowed by own Quiz</b><br/>
+                    {% else %}
+                        <b style="color: blue;">private</b><br/>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+            <hr/>
+        {% endfor %}
+    {% else %}
+    {% if submit %}
+        <b style="color: red;font-size: 20px;">Not found</b><br/>
+    {% endif %}<br/>
     {% for cl in list %}
-        <a href="/go_to_class/{{ cl.id }}"><li><h3>{{ cl.name }}</h3></li></a>{{ cl.teacher }}
+
+        <a href="/go_to_class/{{ cl.id }}"><h3><i class="icon-book"></i> {{ cl.name }}</h3></a><i class="icon-user"> </i> {{ cl.teacher }}<br/>
+        <i class="icon-envelope"> </i> {{ cl.teacher_email }}
+        <a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/?tab%3Dwm&scc=1&ltmpl=default&ltmplcache=2">contact</a><br/>
+        {% if user.username == cl.teacher %}
+            <b style="color: blue;">Your Class</b><br/>
+        {% else %}
+
+        {% if cl.permission %}
+            <b style="color: blue;">public</b><br/>
+        {% else %}
+            {% if cl in new_list %}
+                <b style="color: blue;"><i class="icon-plus-sign"></i> allowed by own Quiz</b><br/>
+            {% else %}
+                <b style="color: blue;">private</b><br/>
+            {% endif %}
+        {% endif %}
+        {% endif %}
+
+        <hr/>
     {% endfor %}
+    </div>
+    {% endif %}
 {% endblock %}

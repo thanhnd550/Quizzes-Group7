@@ -130,7 +130,7 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGIN_REDIRECT_URL ='http://127.0.0.1:8000/Create_Class'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

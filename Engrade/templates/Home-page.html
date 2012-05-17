@@ -2,14 +2,75 @@
 {% block title %} Home page {% endblock %}
 {% block top_menu %}
     <ul class="nav ">
-        <li><a href="/Create_Class/">Teachers</a></li>
-        <li><a href="/ListOfClass/">Student</a></li>
-        <li><a href="/register/">Register</a></li>
+        <li><a href="/Create_Class/"><b>Create Classes</b></a></li>
+        <li><a href="/Create_Quizzes/"><b>Create Quizzes</b></a></li>
+        <li><a href="/About/"><b>About</b></a></li>
     </ul>
-    <ul class="nav pull-right">
-        <li><a href="/logout/">Logout</a></li>
-    </ul>
+
 {% endblock %}
 {% block block_content %}
-    <h1 class="page-header">Hello!</h1>
+    <h1 class="page-header" align="center" style="color: red;">Welcome to engrade quizzes!</h1>
+    <h2 align="center">Created by Group 7</h2>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+
+
+                <div class="well">
+                    <h2>Engrade Quizzes</h2><br/>
+                    <b style="color: blue;">  Engrade quizzes lets you easily give students in your classes online multiple choice quizzes that are automatically scored and can be graded in your gradebook .</b><br/>
+                    <p>
+                        <br/><a href="/register/" class="btn btn-primary">Register an account</a><br />
+                        or <a href="/login/">Login to your account</a>
+                    </p>
+                </div>
+
+
+            </div>
+            <div class="span9">
+                <div class="span6">
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner" align="center">
+                            <div class="item active">
+                                <img src="/site_media/image/education1.jpg" width="600" height="450" alt>
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="/site_media/image/education2.jpg" width="600" height="450" alt>
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="/site_media/image/education6.jpg" width="600" height="450"  alt>
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="/site_media/image/education4.jpg" width="600" height="450"  alt>
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img src="/site_media/image/education5.jpg" width="600" height="450"  alt>
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev"> ‹ </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next"> › </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}

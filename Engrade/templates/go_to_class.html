@@ -1,18 +1,24 @@
 {% extends "base_func.html" %}
-{% block top_menu %} {% endblock %}
+{% block top_menu%}
+    <ul class="nav pull-right">
+        Welcome {{ user.username }}, <a href="/logout/">logout</a>
+    </ul>
+{% endblock %}
 {% block block_content %}
 <div class="container">
+    <div class="well">
     <form action="." method="post">
         <input type="text" placeholder="Enter class code of {{ class_name }}" name="access" value="{{ access }}">
-        <input type="submit"  value="Go" class="btn-success">
+        <input type="submit" name="go"  value="Go" class="btn-success">
     </form>
     {% if ok == 'wrong' %}
-        the access code is wrong you should contact your teacher to get access code
+        <div style="color: red;">The access code is wrong .You should contact the own class to get access code</div>
     {% endif %}
     <hr/>
-    Here are another classes<br/>
+    <b style="color: blue;">Here are another classes</b><br/>
     {% for class in list %}
-        {% if class.name != class_name %}<li>{{ class.name }}</li>{% endif %}
+        {% if class.id != class_id %} <i class="icon-book"> </i> <a href="/go_to_class/{{ class.id }}">{{ class.name }}</a> <br/> {% endif %}
+
     {% endfor %}
-</div>
+</div></div>
 {% endblock %}

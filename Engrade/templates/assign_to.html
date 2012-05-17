@@ -2,14 +2,18 @@
 {% block title %} Assign to classes {% endblock %}
 {% block block_content %}
 <form action="." method="post">
-
+    {% if not list %}
+        <b style="color: red;"> No Class</b>
+    {% endif %}
     {% for class in list %}
     {% if class in assigned %}
-        <div class="icon-ok"></div>{{class.name }}<br/>
+        <div class="icon-ok"></div>{{class.name }} <br/><br/>
     {% else %}
-        <input type="checkbox" name="class" value="{{ class.id }}">{{ class.name }}<br/>
+        <input type="checkbox" name="class" value="{{ class.id }}">{{ class.name }}<br/><br/>
     {% endif %}
     {% endfor %}
+    <hr/>
     <input class="btn" type="submit" name="submit" value="Assign">
+    <a href="/Create_Quizzes/" class="btn">Cancel</a>
 </form>
 {% endblock %}

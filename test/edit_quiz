@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>edit_quiz</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">edit_quiz</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Create_Quizzes/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.icon-cog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=newTitle</td>
+	<td>Quiz 01 edited</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Quiz 01 edited</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=question</td>
+	<td>Ai là lớp trưởng lớp K55CA?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans1</td>
+	<td>Nguyễn Mạnh Cường</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans2</td>
+	<td>Đỗ Khắc Phong</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans3</td>
+	<td>Thái Công Khanh</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans4</td>
+	<td>Đặng Anh Tuấn</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='correct_ans'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=logout</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

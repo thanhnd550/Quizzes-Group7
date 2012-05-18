@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="../Create_demo">Create_demo</a></td></tr>
+<tr><td><a href="../create_demo01">create_demo01</a></td></tr>
+<tr><td><a href="../wrong_username_miss_field">wrong_username_miss_field</a></td></tr>
+<tr><td><a href="../username_existed">username_existed</a></td></tr>
+<tr><td><a href="../login_wrong">login_wrong</a></td></tr>
+<tr><td><a href="../login_success">login_success</a></td></tr>
+<tr><td><a href="../wrong_code">wrong_code</a></td></tr>
+<tr><td><a href="../create_class01">create_class01</a></td></tr>
+<tr><td><a href="../code_existed">code_existed</a></td></tr>
+<tr><td><a href="../create_class03">create_class02</a></td></tr>
+<tr><td><a href="../create_public_class03">create_public_class03</a></td></tr>
+<tr><td><a href="../create_public_class04">create_public_class04</a></td></tr>
+<tr><td><a href="../show_and_hide_access_code">show_and_hide_access_code</a></td></tr>
+<tr><td><a href="../create_quiz01">create_quiz01</a></td></tr>
+<tr><td><a href="../create_quiz02">create_quiz02</a></td></tr>
+<tr><td><a href="../create_quiz03">create_quiz03</a></td></tr>
+<tr><td><a href="../delete_quiz03">delete_quiz03</a></td></tr>
+<tr><td><a href="../Add_new_question">Add_new_question</a></td></tr>
+<tr><td><a href="../Add_new_question02">Add_new_question02</a></td></tr>
+<tr><td><a href="../edit_question">edit_question</a></td></tr>
+<tr><td><a href="../views_quiz">views_quiz</a></td></tr>
+<tr><td><a href="../assign_to_class">assign_to_class</a></td></tr>
+<tr><td><a href="../Add_user">Add_user</a></td></tr>
+<tr><td><a href="../login_to_demo01">login_to_demo01</a></td></tr>
+<tr><td><a href="../content_of_public_class03">content_of_public_class03</a></td></tr>
+<tr><td><a href="../content_of_class02">content_of_class02</a></td></tr>
+<tr><td><a href="../Do_quizes">Do_quizes</a></td></tr>
+<tr><td><a href="../edit_quiz">edit_quiz</a></td></tr>
+<tr><td><a href="../edited_quiz01">edited_quiz01</a></td></tr>
+</tbody></table>
+</body>
+</html>

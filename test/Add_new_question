@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Add_new_question</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Add_new_question</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Add_Question/1/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create new question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=question</td>
+	<td>Ai là nguời được mệnh danh là bà chúa thơ Nôm?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans1</td>
+	<td>Hồ Xuân Hương</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=correct_ans</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans2</td>
+	<td>Hồ Cẩm Đào</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans3</td>
+	<td>Hồ Sỹ Việt Anh</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=ans4</td>
+	<td>Hồ Sỹ Đàm</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
